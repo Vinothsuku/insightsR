@@ -23,7 +23,7 @@ Pre-requisite: Python(~3.7.9) is installed
 
 > pip install -r .\requirements.txt
 
-> streamlit run .\insightsr\insightsr.py --theme.font="serif"
+> streamlit run .\insightsr.py
 
 Open a browser and goto: http://localhost:8501
 
