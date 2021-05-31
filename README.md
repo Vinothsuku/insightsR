@@ -17,11 +17,13 @@ Based on the insights provided, user could identify areas that can be improved, 
 
 
 ## Installation
-Pre-requisite: Python((~3.7.9)) is installed
+Pre-requisite: Python(~3.7.9) is installed
 
-$ git clone https://github.com/Vinothsuku/insightsR.git
-$ pip install -r .\requirements.txt
-$ streamlit run .\insightsr\insightsr.py --theme.font="serif"
+> git clone https://github.com/Vinothsuku/insightsR.git
+
+> pip install -r .\requirements.txt
+
+> streamlit run .\insightsr\insightsr.py --theme.font="serif"
 
 Open a browser and goto: http://localhost:8501
 
