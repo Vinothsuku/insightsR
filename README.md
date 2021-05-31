@@ -17,8 +17,15 @@ Based on the insights provided, user could identify areas that can be improved, 
 
 
 ## Installation
-ss
+Pre-requisite: Python((~3.7.9)) is installed
 
+$ git clone https://github.com/Vinothsuku/insightsR.git
+$ pip install -r .\requirements.txt
+$ streamlit run .\insightsr\insightsr.py --theme.font="serif"
+
+Open a browser and goto: http://localhost:8501
+
+(Optional - Suggested) Create a virtual environment first and then execute the above 3 commands in Terminal/Command Prompt
 
 ## Blog
 I have written a detailed blog [here](https://medium.com/analytics-vidhya/insightsr-automated-insights-for-tabular-data-8328a67de3ed).
