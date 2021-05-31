@@ -21,9 +21,9 @@ Pre-requisite: Python(~3.7.9) is installed
 
 > git clone https://github.com/Vinothsuku/insightsR.git
 
-> pip install -r .\requirements.txt
+> pip install -r .\insightsr\requirements.txt
 
-> streamlit run .\insightsr.py
+> streamlit run .\insightsr\insightsr.py
 
 Open a browser and goto: http://localhost:8501
 
