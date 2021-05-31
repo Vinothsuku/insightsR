@@ -1,5 +1,5 @@
-# insightsR
-**insightsR is an open source webapp that provides automated insights for tabular data**. Insights will be statistically generated based on the target column (dependent variable) selected by the user. Currently insightsR is limited to selecting dependent variable that has continuous values (Regression) - for eg) total sales, price, cost, income, salary etc.
+# Short Note about insightsR
+**insightsR is an open source web application that provides automated insights for tabular data**. Insights will be statistically generated based on the target column (dependent variable) selected by the user. 
 
 **User is only expected to provide a dataset in csv format, select a numeric Target column and click 'Generate Insights' button** in the left pane. Rest is taken care by the tool.
 
@@ -25,4 +25,4 @@ Detailed blog can be found [here](https://medium.com/analytics-vidhya/insightsr-
 Hosted [online](https://insightsr.herokuapp.com/). Feel free to try out with any dataset in csv format.
 
 ## Constraints
-Currently the tool supports only datasets in "csv" and provides insights for a target column that has continuous variables (regression type).
+Currently the tool supports only datasets in "csv" and provides insights for a target column that has continuous values (regression type) for eg) total sales, price, cost, income, salary etc.
