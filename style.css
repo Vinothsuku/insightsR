@@ -1,0 +1,74 @@
+.highlight {
+  border-radius: 5px;
+  color: white;
+  font-size: 23px;
+  width: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.bold {
+  font-weight: 700;
+}
+.fontmain {
+  color: coralred;
+  font-family: Gill Sans Extrabold;
+  font-size: 25px;
+}
+.blue {
+  background-color: lightblue;
+}
+.orange {
+  background-color: orange;
+  text-align: center;
+}
+.grey {
+  background-color: #4d4d4d;
+  font-size: 16px;
+}
+.teal {
+  color: teal;
+}
+.black {
+  color: black;
+}
+.darkblue {
+  background-color: #008ae6;
+}
+.red {
+  background-color: red;
+}
+.green {
+  color: green;
+}
+.fontred {
+  color: red;
+}
+.fontgreen {
+	color: #0c540b;
+	font-size: 19px;
+}
+.fontcoral {
+	color: coral;
+}
+.fontteal {
+	color: teal;
+	font-size: 23px;
+	
+}
+.fontblue {
+	color: #008ae6;
+	font-size: 20px;
+}
+
+.stSelectbox>div>div>input {
+    color: blue;
+}
+
+
+@media (max-width: 991.98px) {
+      .sidebar .sidebar-content {
+        margin-left: auto;
+      }
+    }
