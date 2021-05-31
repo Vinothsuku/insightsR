@@ -1,4 +1,4 @@
-# Short Note about insightsR
+## Short Note about insightsR
 **insightsR is an open source web application that provides automated insights for tabular data**. Insights will be statistically generated based on the target column (dependent variable) selected by the user. 
 
 User is only expected to provide a dataset in csv format, select a numeric Target column and click 'Generate Insights' button in the left pane. Rest is taken care by the tool. Further amplifying the ease of use with a statement: **Just 2 inputs are required from the end user (1. Dataset and 2. Target column)**
@@ -15,17 +15,22 @@ After pre-processing, insightsR tool will statistically analyse the dataset usin
 
 Based on the insights provided, user could identify areas that can be improved, devise a plan on what would happen if a change is simulated, devise a plan to achieve the target.
 
+
 ## Installation
 ss
 
+
 ## Blog
-Detailed blog can be found [here](https://medium.com/analytics-vidhya/insightsr-automated-insights-for-tabular-data-8328a67de3ed).
+I have written a detailed blog [here](https://medium.com/analytics-vidhya/insightsr-automated-insights-for-tabular-data-8328a67de3ed).
+
 
 ## Try out online
 Hosted [online](https://insightsr.herokuapp.com/). Feel free to try out with any dataset in csv format.
 
+
 ## Constraints
 Currently the tool supports only datasets in "csv" and provides insights for a target column that has continuous values (regression type) for eg) total sales, price, cost, income, salary etc.
+
 
 ## Credits
 [fast.ai](https://fast.ai) is the base for this tool. I have put it together as an automation effort (kind of basic autoML type) and as a web application that could be used by anyone with ease.
