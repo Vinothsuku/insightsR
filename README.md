@@ -18,13 +18,15 @@ Based on the insights provided, user could identify areas that can be improved, 
 
 ## Installation
 Pre-requisite: Python(~3.7.9) is installed in the system.
-Execute the following commands in Terminal/cmd
+Execute the following commands in Terminal/cmd 
 
 > git clone https://github.com/Vinothsuku/insightsR.git
 
-> pip install -r .\insightsr\requirements.txt
+> cd .\insightsr
 
-> streamlit run .\insightsr\insightsr.py
+> pip install -r requirements.txt
+
+> streamlit run insightsr.py
 
 Open a browser and goto: http://localhost:8501
 
