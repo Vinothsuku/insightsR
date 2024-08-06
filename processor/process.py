@@ -17,11 +17,11 @@ import plotly.express as px
 from treeinterpreter import treeinterpreter as ti
 from pdpbox import pdp
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def rf_imp_features(model, df):
   return pd.DataFrame({'features':df.columns, 'imp':model.feature_importances_}).sort_values('imp', ascending=False)
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def plot_fi(fi):
   return fi.plot('features', 'imp', 'barh', figsize=(20,10), color = 'dodgerblue', legend=False)
 
@@ -29,11 +29,11 @@ def plot_fi(fi):
 def split_vals(a,n):
   return a[:n], a[n:]
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def rmse(x,y):
   return math.sqrt(((x-y)**2).mean())
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def get_score(model, df_trn, y_trn):
     res = [rmse(model.predict(df_trn), y_trn),
                 model.score(df_trn, y_trn)]
@@ -270,7 +270,7 @@ def plot_pdp(model, x, feat_name, clusters=None):
                         cluster=clusters is not None,
                         n_cluster_centers=clusters)
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def topfeat_drop(features):
   if (features.iloc[0]['imp']) > .85:
     st.write(features.iloc[0]['features'])
