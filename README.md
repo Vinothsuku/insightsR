@@ -35,11 +35,6 @@ Open a browser and goto: http://localhost:8501
 ## Blog
 I have written a detailed blog [here](https://medium.com/analytics-vidhya/insightsr-automated-insights-for-tabular-data-8328a67de3ed).
 
-
-## Try out online
-Hosted [online](https://insightsr.herokuapp.com/). Feel free to try out with any dataset in csv format.
-
-
 ## Constraints
 Currently the tool supports only datasets in "csv" and provides insights for a target column that has continuous values (regression type) for eg) total sales, price, cost, income, salary etc.
 
