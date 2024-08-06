@@ -63,7 +63,6 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # df_raw = pd.read_csv(f'{path}{filename}', low_memory=False)
-st.set_option('deprecation.showfileUploaderEncoding', False)
 prodheader = "<div><span class='fontblue'><span class='bold'>insightsR</span></div>"
 st.sidebar.markdown(prodheader, unsafe_allow_html=True)
 
