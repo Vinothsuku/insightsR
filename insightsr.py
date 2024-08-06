@@ -94,7 +94,7 @@ if df is not None:
         with st.expander("Few stats reg the dataset"):
             st.write(f"Number of records: {rows}, Number of Features/Columns: {cols}")
             st.markdown('Statistics on the dataset across features/columns')
-            st.write(df_raw.describe(include='all').T, width=600, height=900)
+            st.write(df_raw.describe(include='all').T)
             #st.markdown('Number of unique values across the features/columns')
             #st.dataframe(df_raw.T.apply(lambda x: x.nunique(), axis=1))
 
