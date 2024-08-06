@@ -12,12 +12,12 @@ import time
 import matplotlib.pyplot as plt
 
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def remove_null(df, target_variable):
     df.dropna(subset = [target_variable], inplace=True)
     df.dropna(how='all', inplace=True)
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def remove_lowcounts(df, rows):
   val =round(rows*0.25)
   t = []
@@ -28,7 +28,7 @@ def remove_lowcounts(df, rows):
   df.dropna(how='all', inplace=True)
   return t
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def remove_highcardinals_string(df):
   t = []
   for label,content in df.items():
@@ -40,7 +40,7 @@ def remove_highcardinals_string(df):
         t.append(label)
   return t
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def remove_highcardinals_numeric(df, target_variable):
   t = []
   for label,content in df.items():
@@ -51,12 +51,12 @@ def remove_highcardinals_numeric(df, target_variable):
           t.append(label)
   return t
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def numericalize(df, col, name, max_n_cat):
   if not is_numeric_dtype(col) and ( max_n_cat is None or col.nunique()>max_n_cat):
     df[name] = col.cat.codes+1
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def fix_missing(df, col, name, na_dict):
   if is_numeric_dtype(col):
     if pd.isnull(col).sum() or (name in na_dict):
@@ -71,7 +71,7 @@ def get_sample(df,n):
   idxs = sorted(np.random.permutation(len(df))[:n])
   return df.iloc[idxs].copy()
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def proc_df(df, y_fld=None, skip_flds=None, ignore_flds=None, na_dict=None, max_n_cat=None, subset=None):
   if not ignore_flds:
     ignore_flds=[]
@@ -102,13 +102,13 @@ def proc_df(df, y_fld=None, skip_flds=None, ignore_flds=None, na_dict=None, max_
   res = [df, y, na_dict]
   return res
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def train_cats(df):
   for label, content in df.items():
     if is_string_dtype(content):
       df[label] = content.astype('category').cat.as_ordered()
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def add_datepart(df, fldname, drop=True, time=False):
     fld = df[fldname]
     if not np.issubdtype(fld.dtype, np.datetime64):
@@ -123,7 +123,7 @@ def add_datepart(df, fldname, drop=True, time=False):
 
 #Working Function
 #add_datepart(df_raw,'Date')
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def get_date(df):
   for label,content in df.items():
     if is_datetime64_any_dtype(content):
@@ -132,7 +132,7 @@ def get_date(df):
       add_datepart(df,label,time=True)
 
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def convert_date(df):
   df = df.apply(lambda col: pd.to_datetime(col, errors='ignore')
               if col.dtypes == object
@@ -141,7 +141,7 @@ def convert_date(df):
   return df
 
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def spear_C(df):
   if df.shape[0] > 30000:
     df_tmp = get_sample(df,30000)
@@ -154,7 +154,7 @@ def spear_C(df):
   #plt.show()
   #return sp
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
+@st.cache_data(show_spinner=False)
 def pearman_C(df):
   c_matrix = df.corr()
   #corr_matrix[target_variable].sort_values(ascending=False)
