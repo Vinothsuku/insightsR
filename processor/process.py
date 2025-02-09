@@ -15,11 +15,14 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import plotly.express as px
 from treeinterpreter import treeinterpreter as ti
-from pdpbox import pdp
+import pdpbox
+import io
+import base64
+
 
 @st.cache_data(show_spinner=False)
-def rf_imp_features(model, df):
-  return pd.DataFrame({'features':df.columns, 'imp':model.feature_importances_}).sort_values('imp', ascending=False)
+def rf_imp_features(_model, df):
+  return pd.DataFrame({'features':df.columns, 'imp':_model.feature_importances_}).sort_values('imp', ascending=False)
 
 @st.cache_data(show_spinner=False)
 def plot_fi(fi):
@@ -34,10 +37,10 @@ def rmse(x,y):
   return math.sqrt(((x-y)**2).mean())
 
 @st.cache_data(show_spinner=False)
-def get_score(model, df_trn, y_trn):
-    res = [rmse(model.predict(df_trn), y_trn),
-                model.score(df_trn, y_trn)]
-    if hasattr(model, 'oob_score_'): res.append(model.oob_score_)
+def get_score(_model, df_trn, y_trn):
+    res = [rmse(_model.predict(df_trn), y_trn),
+                _model.score(df_trn, y_trn)]
+    if hasattr(_model, 'oob_score_'): res.append(_model.oob_score_)
     return res
 
 # @st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
@@ -264,11 +267,29 @@ def get_contributions(slice, model,df_trn ):
 
 # @st.cache(suppress_st_warning=True, allow_output_mutation=True, show_spinner=False)
 def plot_pdp(model, x, feat_name, clusters=None):
-    #feat_name = feat_name or feat
-    p = pdp.pdp_isolate(model, x, feature=feat_name, model_features=x.columns)
-    return pdp.pdp_plot(p, feat_name, plot_lines=True,
-                        cluster=clusters is not None,
-                        n_cluster_centers=clusters)
+    if hasattr(model, 'feature_names_in_'):
+        model_features = model.feature_names_in_
+    else:
+        model_features = x.columns
+    p = pdpbox.pdp.PDPIsolate(
+        model=model,
+        df=x,
+        model_features=model_features,
+        feature_name=feat_name,
+        feature=feat_name,
+        n_classes=0
+    )
+
+    fig, _ = p.plot(
+        center=True,
+        plot_lines=True,
+        cluster=True if clusters else False,
+        n_cluster_centers=clusters if clusters else None,
+        engine='matplotlib'
+    )
+    return fig
+    #return p.plot(center=True,plot_lines=True,cluster=True if clusters else False,n_cluster_centers=clusters if clusters else None)
+    #return pdp.pdp_plot(p, feat_name, plot_lines=True,cluster=clusters is not None, n_cluster_centers=clusters)
 
 @st.cache_data(show_spinner=False)
 def topfeat_drop(features):

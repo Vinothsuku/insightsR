@@ -252,7 +252,7 @@ if df is not None:
         # pd.option_context('display.max_rows', 500,'display.max_columns', 500)
         pd.set_option('display.max_columns', 500)
         pd.set_option('display.expand_frame_repr', False)
-        pd.set_option('max_colwidth', -1)
+        pd.set_option('max_colwidth', None)
 
         st.write("")
         st.write("")
@@ -409,36 +409,36 @@ if df is not None:
               feat_name = feats1
             else:
               feat_name = feats1+'*'+attr1
-            plot_pdp(model, x, feat_name = feat_name, clusters=10)
-            st.pyplot()
+            fig = plot_pdp(model, x, feat_name = feat_name, clusters=10)
+            st.pyplot(fig)
 
             if not attr2:
               feat_name = feats2
             else:
               feat_name = feats2+'*'+attr2
-            plot_pdp(model, x, feat_name = feat_name, clusters=10)
-            st.pyplot()
+            fig=plot_pdp(model, x, feat_name = feat_name, clusters=10)
+            st.pyplot(fig)
 
             if not attr3:
               feat_name = feats3
             else:
               feat_name = feats3+'*'+attr3
-            plot_pdp(model, x, feat_name = feat_name, clusters=10)
-            st.pyplot()
+            fig=plot_pdp(model, x, feat_name = feat_name, clusters=10)
+            st.pyplot(fig)
 
             if not attr4:
               feat_name = feats4
             else:
               feat_name = feats4+'*'+attr4
-            plot_pdp(model, x, feat_name = feat_name, clusters=10)
-            st.pyplot()
+            fig=plot_pdp(model, x, feat_name = feat_name, clusters=10)
+            st.pyplot(fig)
 
             if not attr5:
               feat_name = feats5
             else:
               feat_name = feats5+'*'+attr5
-            plot_pdp(model, x, feat_name = feat_name, clusters=10)
-            st.pyplot()
+            fig=plot_pdp(model, x, feat_name = feat_name, clusters=10)
+            st.pyplot(fig)
 
         st.markdown("<div><span class='fontgreen'><span class='bold'>2.6 Summary of Predicted Insights</span></div>", unsafe_allow_html=True)
         st.write(f"For the chosen target data: {target_variable}, following are the important contributors ")

@@ -156,7 +156,8 @@ def spear_C(df):
 
 @st.cache_data(show_spinner=False)
 def pearman_C(df):
-  c_matrix = df.corr()
+  df_numeric = df.select_dtypes(include=['number'])
+  c_matrix = df_numeric.corr()
   #corr_matrix[target_variable].sort_values(ascending=False)
   fig,ax= plt.subplots()
   fig.set_size_inches(30,20)
