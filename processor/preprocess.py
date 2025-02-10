@@ -151,8 +151,6 @@ def spear_C(df):
   sp_con = hc.ward(sp)
   dendro = hc.dendrogram(sp_con, labels=df.columns, leaf_rotation=90)
   st.pyplot()
-  #plt.show()
-  #return sp
 
 @st.cache_data(show_spinner=False)
 def pearman_C(df):
@@ -164,4 +162,3 @@ def pearman_C(df):
   sn.heatmap(c_matrix, square=True,annot=True)
   st.pyplot()
   return c_matrix
-

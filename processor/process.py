@@ -16,8 +16,6 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 from treeinterpreter import treeinterpreter as ti
 import pdpbox
-import io
-import base64
 
 
 @st.cache_data(show_spinner=False)

@@ -100,7 +100,6 @@ if df is not None:
 
         df_raw = convert_date(df_raw)
 
-        #spear_C(df_raw)
         with st.expander("Highly Correlated Cols"):
             st.write("Columns that are highly correlated with each other are depicted in the below figure (light shaded columns)")
             st.write("Such columns will be suggested for user if they can be removed in order to provide a better insight that are not displaying redundant columns")
@@ -358,40 +357,6 @@ if df is not None:
             title = f"Feature Contributions related to MAX sample - \"{feats5}\""
             fig.update_layout(title = title, height=500, width=1000)
             st.write(fig)
-        #1 hot encoded
-        #tmp.plot.bar(x=tmp.index, y=tmp.values, rot=90)
-        # User Selected Sample
-        # st.markdown(f"<div><span class='fontgrey'>6. Select your own choice of sample</span></div>", unsafe_allow_html=True)
-        # st.markdown(f"<div><span class='fontgrey'>Choose your selection below</span></div>", unsafe_allow_html=True)
-        # scol1, scol2 = st.beta_columns(2)
-        # with scol1:
-            # sel_col1 = st.selectbox('select a col: choice 1',(df_trn.columns), key="sel_col1")
-        # with scol2:
-            # sel_col_s1 = st.selectbox('select value',(df_trn[sel_col1].unique()), key="sel_col_s1")
-            # df_trn_tmp = df_trn.loc[df_trn[sel_col1] == sel_col_s1]
-        # # with scol2:
-        # #     sel_col2 = st.selectbox('select a col: choice 2',(df_trn.columns), key="sel_col2")
-        # #     sel_col_s2 = st.selectbox('select value',(df_trn[sel_col2].unique()), key="sel_col_s2")
-        # # df_trn_tmp = df_sel.loc[(df_sel[sel_col1] == sel_col_s1) & (df_sel[sel_col2] == sel_col_s2)]
-        # generate = st.checkbox("Generate Report", key='Plot1_Generate')
-        # if generate:
-            # bias,prediction,df_tree,t_conts,l_conts,sample = get_contributions(df_trn_tmp)
-            # mstmp = sample[topfeatures].describe(include ='all').T
-            # with st.beta_expander("About this data sample"):
-                # st.write(mstmp)
-
-            # with st.beta_expander("Details of Indv contributions towards the mean prediction target"):
-                # print_contribs(bias,prediction,feats5)
-
-                # fig = go.Figure(go.Waterfall(
-                    # name = "chart", orientation = "h",
-                    # y = df_tree['feature'],
-                    # x = df_tree['cont'],
-                    # connector = {"mode":"between", "line":{"width":4, "color":"rgb(0, 0, 0)", "dash":"solid"}}
-                # ))
-                # title = f"Feature Contributions related to user selected sample"
-                # fig.update_layout(title = title, height=500, width=1000)
-                # st.write(fig)
 
         #"""**Partial Dependence Plots**"""
         st.markdown("<div><span class='fontgreen'><span class='bold'>2.5 Change Analysis - Simulated Impact of Features on Target</span></div>", unsafe_allow_html=True)
